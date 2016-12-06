@@ -6109,33 +6109,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      		}
 	      	});
 				}
-				
-				if (typeof Blob !== 'undefined' && data instanceof Blob) {
-					count += 1;
-					var id = count;
-					stack.push(id);
-					(0, _blobToBuffer2['default'])(data, function(err, buffer) {
-						if (err) {
-							throw err;
-						}
-						pending[id] = buffer;
-						// ensure events are emitted sequentially 
-						var _id = stack[0];
-						while (pending.hasOwnProperty(_id)) {
-							var buf = pending[_id];
-							emitter.emit('data', buf);
-							delete pending[_id];
-							stack.shift();
-							if (stack.length === 0) {
-								// no more elements
-								break;
-							}
-							else {
-								_id = stack[0];
-							}
-						}
-					});
-				}
+	    }
+	  }
 
 	  this.end = function (data) {
 	    if (data !== undefined) {
