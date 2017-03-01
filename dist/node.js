@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("url"), require("util"), require("http"), require("https"), require("crypto"), require("stream"), require("fs"), require("events"), require("zlib"), require("tls"));
+		module.exports = factory(require("url"), require("util"), require("http"), require("https"), require("crypto"), require("stream"), require("fs"), require("events"), require("path"), require("zlib"), require("tls"));
 	else if(typeof define === 'function' && define.amd)
-		define(["url", "util", "http", "https", "crypto", "stream", "fs", "events", "zlib", "tls"], factory);
+		define(["url", "util", "http", "https", "crypto", "stream", "fs", "events", "path", "zlib", "tls"], factory);
 	else if(typeof exports === 'object')
-		exports["RethinkdbWebsocketClient"] = factory(require("url"), require("util"), require("http"), require("https"), require("crypto"), require("stream"), require("fs"), require("events"), require("zlib"), require("tls"));
+		exports["RethinkdbWebsocketClient"] = factory(require("url"), require("util"), require("http"), require("https"), require("crypto"), require("stream"), require("fs"), require("events"), require("path"), require("zlib"), require("tls"));
 	else
-		root["RethinkdbWebsocketClient"] = factory(root["url"], root["util"], root["http"], root["https"], root["crypto"], root["stream"], root["fs"], root["events"], root["zlib"], root["tls"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_45__, __WEBPACK_EXTERNAL_MODULE_46__, __WEBPACK_EXTERNAL_MODULE_47__, __WEBPACK_EXTERNAL_MODULE_48__, __WEBPACK_EXTERNAL_MODULE_49__, __WEBPACK_EXTERNAL_MODULE_50__, __WEBPACK_EXTERNAL_MODULE_53__, __WEBPACK_EXTERNAL_MODULE_55__, __WEBPACK_EXTERNAL_MODULE_60__, __WEBPACK_EXTERNAL_MODULE_69__) {
+		root["RethinkdbWebsocketClient"] = factory(root["url"], root["util"], root["http"], root["https"], root["crypto"], root["stream"], root["fs"], root["events"], root["path"], root["zlib"], root["tls"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_45__, __WEBPACK_EXTERNAL_MODULE_46__, __WEBPACK_EXTERNAL_MODULE_47__, __WEBPACK_EXTERNAL_MODULE_48__, __WEBPACK_EXTERNAL_MODULE_49__, __WEBPACK_EXTERNAL_MODULE_50__, __WEBPACK_EXTERNAL_MODULE_53__, __WEBPACK_EXTERNAL_MODULE_55__, __WEBPACK_EXTERNAL_MODULE_60__, __WEBPACK_EXTERNAL_MODULE_67__, __WEBPACK_EXTERNAL_MODULE_78__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -77,7 +77,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _rethinkdb2 = _interopRequireDefault(_rethinkdb);
 
-	var _rethinkdbProtoDef = __webpack_require__(74);
+	var _rethinkdbProtoDef = __webpack_require__(83);
 
 	var _rethinkdbProtoDef2 = _interopRequireDefault(_rethinkdbProtoDef);
 
@@ -5138,9 +5138,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	net = __webpack_require__(41);
 
-	rethinkdb = __webpack_require__(76);
+	rethinkdb = __webpack_require__(85);
 
-	error = __webpack_require__(73);
+	error = __webpack_require__(82);
 
 	rethinkdb.connect = net.connect;
 
@@ -5164,17 +5164,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	net = __webpack_require__(42);
 
-	tls = __webpack_require__(69);
+	tls = __webpack_require__(78);
 
 	events = __webpack_require__(55);
 
-	util = __webpack_require__(72);
+	util = __webpack_require__(81);
 
-	err = __webpack_require__(73);
+	err = __webpack_require__(82);
 
-	cursors = __webpack_require__(75);
+	cursors = __webpack_require__(84);
 
-	protodef = __webpack_require__(74);
+	protodef = __webpack_require__(83);
 
 	crypto = __webpack_require__(49);
 
@@ -5188,7 +5188,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	protoResponseType = protodef.Response.ResponseType;
 
-	r = __webpack_require__(76);
+	r = __webpack_require__(85);
 
 	Promise = __webpack_require__(2);
 
@@ -6160,11 +6160,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _blobToBuffer = __webpack_require__(70);
+	var _blobToBuffer = __webpack_require__(79);
 
 	var _blobToBuffer2 = _interopRequireDefault(_blobToBuffer);
 
-	var _eventemitter2 = __webpack_require__(71);
+	var _eventemitter2 = __webpack_require__(80);
 
 	var _eventemitter22 = _interopRequireDefault(_eventemitter2);
 
@@ -6361,9 +6361,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var WS = module.exports = __webpack_require__(44);
 
-	WS.Server = __webpack_require__(68);
+	WS.Server = __webpack_require__(77);
 	WS.Sender = __webpack_require__(54);
-	WS.Receiver = __webpack_require__(61);
+	WS.Receiver = __webpack_require__(68);
 
 	/**
 	 * Create a new WebSocket server.
@@ -6423,11 +6423,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  , Ultron = __webpack_require__(51)
 	  , Options = __webpack_require__(52)
 	  , Sender = __webpack_require__(54)
-	  , Receiver = __webpack_require__(61)
-	  , SenderHixie = __webpack_require__(65)
-	  , ReceiverHixie = __webpack_require__(66)
-	  , Extensions = __webpack_require__(67)
-	  , PerMessageDeflate = __webpack_require__(59)
+	  , Receiver = __webpack_require__(68)
+	  , SenderHixie = __webpack_require__(74)
+	  , ReceiverHixie = __webpack_require__(75)
+	  , Extensions = __webpack_require__(76)
+	  , PerMessageDeflate = __webpack_require__(66)
 	  , EventEmitter = __webpack_require__(55).EventEmitter;
 
 	/**
@@ -7680,7 +7680,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  , EventEmitter = events.EventEmitter
 	  , ErrorCodes = __webpack_require__(56)
 	  , bufferUtil = __webpack_require__(57).BufferUtil
-	  , PerMessageDeflate = __webpack_require__(59);
+	  , PerMessageDeflate = __webpack_require__(66);
 
 	/**
 	 * HyBi Sender implementation
@@ -8028,14 +8028,292 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	try {
-	  module.exports = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"bufferutil\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	} catch (e) {
 	  module.exports = __webpack_require__(58);
+	} catch (e) {
+	  module.exports = __webpack_require__(65);
 	}
 
 
 /***/ },
 /* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	try {
+	  module.exports = __webpack_require__(59)('bufferutil');
+	} catch (e) {
+	  module.exports = __webpack_require__(64);
+	}
+
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(__filename) {
+	/**
+	 * Module dependencies.
+	 */
+
+	var fs = __webpack_require__(53)
+	  , path = __webpack_require__(60)
+	  , join = path.join
+	  , dirname = path.dirname
+	  , exists = fs.existsSync || path.existsSync
+	  , defaults = {
+	        arrow: process.env.NODE_BINDINGS_ARROW || ' → '
+	      , compiled: process.env.NODE_BINDINGS_COMPILED_DIR || 'compiled'
+	      , platform: process.platform
+	      , arch: process.arch
+	      , version: process.versions.node
+	      , bindings: 'bindings.node'
+	      , try: [
+	          // node-gyp's linked version in the "build" dir
+	          [ 'module_root', 'build', 'bindings' ]
+	          // node-waf and gyp_addon (a.k.a node-gyp)
+	        , [ 'module_root', 'build', 'Debug', 'bindings' ]
+	        , [ 'module_root', 'build', 'Release', 'bindings' ]
+	          // Debug files, for development (legacy behavior, remove for node v0.9)
+	        , [ 'module_root', 'out', 'Debug', 'bindings' ]
+	        , [ 'module_root', 'Debug', 'bindings' ]
+	          // Release files, but manually compiled (legacy behavior, remove for node v0.9)
+	        , [ 'module_root', 'out', 'Release', 'bindings' ]
+	        , [ 'module_root', 'Release', 'bindings' ]
+	          // Legacy from node-waf, node <= 0.4.x
+	        , [ 'module_root', 'build', 'default', 'bindings' ]
+	          // Production "Release" buildtype binary (meh...)
+	        , [ 'module_root', 'compiled', 'version', 'platform', 'arch', 'bindings' ]
+	        ]
+	    }
+
+	/**
+	 * The main `bindings()` function loads the compiled bindings for a given module.
+	 * It uses V8's Error API to determine the parent filename that this function is
+	 * being invoked from, which is then used to find the root directory.
+	 */
+
+	function bindings (opts) {
+
+	  // Argument surgery
+	  if (typeof opts == 'string') {
+	    opts = { bindings: opts }
+	  } else if (!opts) {
+	    opts = {}
+	  }
+	  opts.__proto__ = defaults
+
+	  // Get the module root
+	  if (!opts.module_root) {
+	    opts.module_root = exports.getRoot(exports.getFileName())
+	  }
+
+	  // Ensure the given bindings name ends with .node
+	  if (path.extname(opts.bindings) != '.node') {
+	    opts.bindings += '.node'
+	  }
+
+	  var tries = []
+	    , i = 0
+	    , l = opts.try.length
+	    , n
+	    , b
+	    , err
+
+	  for (; i<l; i++) {
+	    n = join.apply(null, opts.try[i].map(function (p) {
+	      return opts[p] || p
+	    }))
+	    tries.push(n)
+	    try {
+	      b = opts.path ? /*require.resolve*/(__webpack_require__(61).resolve(n)) : __webpack_require__(61)(n)
+	      if (!opts.path) {
+	        b.path = n
+	      }
+	      return b
+	    } catch (e) {
+	      if (!/not find/i.test(e.message)) {
+	        throw e
+	      }
+	    }
+	  }
+
+	  err = new Error('Could not locate the bindings file. Tried:\n'
+	    + tries.map(function (a) { return opts.arrow + a }).join('\n'))
+	  err.tries = tries
+	  throw err
+	}
+	module.exports = exports = bindings
+
+
+	/**
+	 * Gets the filename of the JavaScript file that invokes this function.
+	 * Used to help find the root directory of a module.
+	 * Optionally accepts an filename argument to skip when searching for the invoking filename
+	 */
+
+	exports.getFileName = function getFileName (calling_file) {
+	  var origPST = Error.prepareStackTrace
+	    , origSTL = Error.stackTraceLimit
+	    , dummy = {}
+	    , fileName
+
+	  Error.stackTraceLimit = 10
+
+	  Error.prepareStackTrace = function (e, st) {
+	    for (var i=0, l=st.length; i<l; i++) {
+	      fileName = st[i].getFileName()
+	      if (fileName !== __filename) {
+	        if (calling_file) {
+	            if (fileName !== calling_file) {
+	              return
+	            }
+	        } else {
+	          return
+	        }
+	      }
+	    }
+	  }
+
+	  // run the 'prepareStackTrace' function above
+	  Error.captureStackTrace(dummy)
+	  dummy.stack
+
+	  // cleanup
+	  Error.prepareStackTrace = origPST
+	  Error.stackTraceLimit = origSTL
+
+	  return fileName
+	}
+
+	/**
+	 * Gets the root directory of a module, given an arbitrary filename
+	 * somewhere in the module tree. The "root directory" is the directory
+	 * containing the `package.json` file.
+	 *
+	 *   In:  /home/nate/node-native-module/lib/index.js
+	 *   Out: /home/nate/node-native-module
+	 */
+
+	exports.getRoot = function getRoot (file) {
+	  var dir = dirname(file)
+	    , prev
+	  while (true) {
+	    if (dir === '.') {
+	      // Avoids an infinite loop in rare cases, like the REPL
+	      dir = process.cwd()
+	    }
+	    if (exists(join(dir, 'package.json')) || exists(join(dir, 'node_modules'))) {
+	      // Found the 'package.json' file or 'node_modules' dir; we're done
+	      return dir
+	    }
+	    if (prev === dir) {
+	      // Got to the top
+	      throw new Error('Could not find module root given file: "' + file
+	                    + '". Do you have a `package.json` file? ')
+	    }
+	    // Try the parent dir next
+	    prev = dir
+	    dir = join(dir, '..')
+	  }
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, "/index.js"))
+
+/***/ },
+/* 60 */
+/***/ function(module, exports) {
+
+	module.exports = require("path");
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./bindings": 59,
+		"./bindings.js": 59
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 61;
+
+
+/***/ },
+/* 62 */,
+/* 63 */,
+/* 64 */
+/***/ function(module, exports) {
+
+	/*!
+	 * bufferutil: WebSocket buffer utils
+	 * Copyright(c) 2015 Einar Otto Stangvik <einaros@gmail.com>
+	 * MIT Licensed
+	 */
+
+	'use strict';
+
+	/**
+	 * Merges an array of buffers into a target buffer.
+	 *
+	 * @param {Buffer} target The target buffer
+	 * @param {Buffer[]} buffers The array of buffers to merge
+	 * @public
+	 */
+	const merge = (target, buffers) => {
+	  var offset = 0;
+	  for (var i = 0; i < buffers.length; i++) {
+	    const buf = buffers[i];
+	    buf.copy(target, offset);
+	    offset += buf.length;
+	  }
+	};
+
+	/**
+	 * Masks a buffer using the given mask.
+	 *
+	 * @param {Buffer} source The buffer to mask
+	 * @param {Buffer} mask The mask to use
+	 * @param {Buffer} output The buffer where to store the result
+	 * @param {Number} offset The offset at which to start writing
+	 * @param {Number} length The number of bytes to mask.
+	 * @public
+	 */
+	const mask = (source, mask, output, offset, length) => {
+	  for (var i = 0; i < length; i++) {
+	    output[offset + i] = source[i] ^ mask[i & 3];
+	  }
+	};
+
+	/**
+	 * Unmasks a buffer using the given mask.
+	 *
+	 * @param {Buffer} buffer The buffer to unmask
+	 * @param {Buffer} mask The mask to use
+	 * @public
+	 */
+	const unmask = (buffer, mask) => {
+	  // Required until https://github.com/nodejs/node/issues/9006 is resolved.
+	  const length = buffer.length;
+	  for (var i = 0; i < length; i++) {
+	    buffer[i] ^= mask[i & 3];
+	  }
+	};
+
+	module.exports = { merge, mask, unmask };
+
+
+/***/ },
+/* 65 */
 /***/ function(module, exports) {
 
 	/*!
@@ -8088,11 +8366,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 59 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var zlib = __webpack_require__(60);
+	var zlib = __webpack_require__(67);
 
 	var AVAILABLE_WINDOW_BITS = [8, 9, 10, 11, 12, 13, 14, 15];
 	var DEFAULT_WINDOW_BITS = 15;
@@ -8431,13 +8709,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 60 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = require("zlib");
 
 /***/ },
-/* 61 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -8447,11 +8725,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var util = __webpack_require__(46)
-	  , Validation = __webpack_require__(62).Validation
+	  , Validation = __webpack_require__(69).Validation
 	  , ErrorCodes = __webpack_require__(56)
-	  , BufferPool = __webpack_require__(64)
+	  , BufferPool = __webpack_require__(73)
 	  , bufferUtil = __webpack_require__(57).BufferUtil
-	  , PerMessageDeflate = __webpack_require__(59);
+	  , PerMessageDeflate = __webpack_require__(66);
 
 	/**
 	 * HyBi Receiver implementation
@@ -9236,7 +9514,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 62 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9248,14 +9526,105 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	try {
-	  module.exports = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"utf-8-validate\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	  module.exports = __webpack_require__(70);
 	} catch (e) {
-	  module.exports = __webpack_require__(63);
+	  module.exports = __webpack_require__(72);
 	}
 
 
 /***/ },
-/* 63 */
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	try {
+	  module.exports = __webpack_require__(59)('validation');
+	} catch (e) {
+	  module.exports = __webpack_require__(71);
+	}
+
+
+/***/ },
+/* 71 */
+/***/ function(module, exports) {
+
+	/*!
+	 * UTF-8 validate: UTF-8 validation for WebSockets.
+	 * Copyright(c) 2015 Einar Otto Stangvik <einaros@gmail.com>
+	 * MIT Licensed
+	 */
+
+	'use strict';
+
+	/**
+	 * Checks if a given buffer contains only correct UTF-8.
+	 * Ported from https://www.cl.cam.ac.uk/%7Emgk25/ucs/utf8_check.c by
+	 * Markus Kuhn.
+	 *
+	 * @param {Buffer} buf The buffer to check
+	 * @return {Boolean} `true` if `buf` contains only correct UTF-8, else `false`
+	 * @public
+	 */
+	const isValidUTF8 = (buf) => {
+	  if (!Buffer.isBuffer(buf)) {
+	    throw new TypeError('First argument needs to be a buffer');
+	  }
+
+	  var len = buf.length;
+	  var i = 0;
+
+	  while (i < len) {
+	    if (buf[i] < 0x80) {  // 0xxxxxxx
+	      i++;
+	    } else if ((buf[i] & 0xe0) === 0xc0) {  // 110xxxxx 10xxxxxx
+	      if (
+	        i + 1 === len ||
+	        (buf[i + 1] & 0xc0) !== 0x80 ||
+	        (buf[i] & 0xfe) === 0xc0  // overlong
+	      ) {
+	        return false;
+	      } else {
+	        i += 2;
+	      }
+	    } else if ((buf[i] & 0xf0) === 0xe0) {  // 1110xxxx 10xxxxxx 10xxxxxx
+	      if (
+	        i + 2 >= len ||
+	        (buf[i + 1] & 0xc0) !== 0x80 ||
+	        (buf[i + 2] & 0xc0) !== 0x80 ||
+	        buf[i] === 0xe0 && (buf[i + 1] & 0xe0) === 0x80 ||  // overlong
+	        buf[i] === 0xed && (buf[i + 1] & 0xe0) === 0xa0     // surrogate (U+D800 - U+DFFF)
+	      ) {
+	        return false;
+	      } else {
+	        i += 3;
+	      }
+	    } else if ((buf[i] & 0xf8) === 0xf0) {  // 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+	      if (
+	        i + 3 >= len ||
+	        (buf[i + 1] & 0xc0) !== 0x80 ||
+	        (buf[i + 2] & 0xc0) !== 0x80 ||
+	        (buf[i + 3] & 0xc0) !== 0x80 ||
+	        buf[i] === 0xf0 && (buf[i + 1] & 0xf0) === 0x80 ||  // overlong
+	        buf[i] === 0xf4 && buf[i + 1] > 0x8f || buf[i] > 0xf4  // > U+10FFFF
+	      ) {
+	        return false;
+	      } else {
+	        i += 4;
+	      }
+	    } else {
+	      return false;
+	    }
+	  }
+
+	  return true;
+	};
+
+	module.exports = isValidUTF8;
+
+
+/***/ },
+/* 72 */
 /***/ function(module, exports) {
 
 	/*!
@@ -9272,7 +9641,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 64 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -9341,7 +9710,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 65 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -9471,7 +9840,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 66 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -9671,7 +10040,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 67 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -9747,7 +10116,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 68 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -9762,9 +10131,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  , crypto = __webpack_require__(49)
 	  , Options = __webpack_require__(52)
 	  , WebSocket = __webpack_require__(44)
-	  , Extensions = __webpack_require__(67)
-	  , PerMessageDeflate = __webpack_require__(59)
-	  , tls = __webpack_require__(69)
+	  , Extensions = __webpack_require__(76)
+	  , PerMessageDeflate = __webpack_require__(66)
+	  , tls = __webpack_require__(78)
 	  , url = __webpack_require__(45);
 
 	/**
@@ -10307,13 +10676,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 69 */
+/* 78 */
 /***/ function(module, exports) {
 
 	module.exports = require("tls");
 
 /***/ },
-/* 70 */
+/* 79 */
 /***/ function(module, exports) {
 
 	/* global Blob, FileReader */
@@ -10340,7 +10709,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 71 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10919,16 +11288,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 72 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Generated by CoffeeScript 1.10.0
 	var convertPseudotype, err, errorClass, mkAtom, mkErr, mkSeq, plural, protoErrorType, protodef, recursivelyConvertPseudotype,
 	  slice = [].slice;
 
-	err = __webpack_require__(73);
+	err = __webpack_require__(82);
 
-	protodef = __webpack_require__(74);
+	protodef = __webpack_require__(83);
 
 	protoErrorType = protodef.Response.ErrorType;
 
@@ -11138,7 +11507,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 73 */
+/* 82 */
 /***/ function(module, exports) {
 
 	// Generated by CoffeeScript 1.10.0
@@ -11481,7 +11850,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 74 */
+/* 83 */
 /***/ function(module, exports) {
 
 	// DO NOT EDIT
@@ -11758,7 +12127,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 75 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Generated by CoffeeScript 1.10.0
@@ -11768,11 +12137,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
 	  hasProp = {}.hasOwnProperty;
 
-	error = __webpack_require__(73);
+	error = __webpack_require__(82);
 
-	util = __webpack_require__(72);
+	util = __webpack_require__(81);
 
-	protoResponseType = __webpack_require__(74).Response.ResponseType;
+	protoResponseType = __webpack_require__(83).Response.ResponseType;
 
 	Promise = __webpack_require__(2);
 
@@ -12484,7 +12853,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 76 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Generated by CoffeeScript 1.10.0
@@ -12493,13 +12862,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  hasProp = {}.hasOwnProperty,
 	  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-	util = __webpack_require__(72);
+	util = __webpack_require__(81);
 
-	err = __webpack_require__(73);
+	err = __webpack_require__(82);
 
 	net = __webpack_require__(41);
 
-	protoTermType = __webpack_require__(74).Term.TermType;
+	protoTermType = __webpack_require__(83).Term.TermType;
 
 	Promise = __webpack_require__(2);
 
