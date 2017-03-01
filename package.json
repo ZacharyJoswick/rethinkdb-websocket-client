@@ -20,11 +20,9 @@
   "dependencies": {
     "blob-to-buffer": "^1.2.6",
     "bluebird": "^2.9.27",
-    "bufferutil": "^2.0.1",
     "eventemitter2": "^0.4.14",
     "node-libs-browser": ">= 0.4.0 <=0.6.0",
     "rethinkdb": "^2.3.0",
-    "utf-8-validate": "^3.0.1",
     "ws": "^1.1.1"
   },
   "devDependencies": {
