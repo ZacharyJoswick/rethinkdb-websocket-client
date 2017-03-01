@@ -191,6 +191,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var nodebackForPromise = PromiseResolver._nodebackForPromise;
 	var errorObj = util.errorObj;
 	var tryCatch = util.tryCatch;
+
 	function Promise(resolver) {
 	    if (typeof resolver !== "function") {
 	        throw new TypeError("the promise constructor requires a resolver function\u000a\u000a    See http://goo.gl/EC22Yn\u000a");
@@ -293,6 +294,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	Promise.prototype.error = function (fn) {
 	    return this.caught(util.originatesFromRejection, fn);
 	};
+
+	Promise.getNewLibraryCopy = module.exports;
 
 	Promise.is = function (val) {
 	    return val instanceof Promise;
@@ -836,6 +839,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 
+
 	util.notEnumerableProp(Promise,
 	                       "_makeSelfResolutionError",
 	                       makeSelfResolutionError);
@@ -847,6 +851,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	__webpack_require__(21)(Promise);
 	__webpack_require__(22)(Promise);
 	__webpack_require__(23)(Promise, PromiseArray, tryConvertToPromise, INTERNAL);
+	Promise.version = "2.11.0";
 	Promise.Promise = Promise;
 	__webpack_require__(24)(Promise, PromiseArray, apiRejection, tryConvertToPromise, INTERNAL);
 	__webpack_require__(25)(Promise);
@@ -6026,9 +6031,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 
 	  var ws = null;
-	  var count = 0;
-		var pending = {};
-		var stack = [];
 
 	  this.connect = function (port, host, connectListener) {
 	    _this._simulatedLatencyMs = tcpPolyfillOptions.simulatedLatencyMs;
@@ -6055,30 +6057,36 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    ws.onmessage = function (event) {
 	      var data = event.data;
-				if (typeof Blob !== 'undefined' && data instanceof Blob) {
-				   count += 1;
-				   var id = count;
-				   stack.push(id);
-				   (0, _blobToBuffer2['default'])(data, function (err, buffer) {
-						if (err) {throw err;}
-			        pending[id] = buffer;
-							// ensure events are emitted sequentially 
-			        var _id = stack[0];	  
-			        while (pending.hasOwnProperty(_id)) {
-						  var buf = pending[_id];
-						  emitter.emit('data', buf);
-						  delete pending[_id];
-						  stack.shift();
-						  if (stack.length === 0) {
-						    	// no more elements
-						    	break;
-						  } else {
-						      _id = stack[0];
-						  }
-				        } 
-				    });
-				}
-	      else if (typeof data === 'string' && ws.protocol === 'base64') {
+
+	      // Handle incoming message as base64 if ws.protocol is set to base64
+	      // or if it's not set at all and we are in a problematic React Native
+	      // environment per:
+	      //
+	      // https://tools.ietf.org/html/rfc6455#section-11.3.4
+	      // https://tools.ietf.org/html/rfc3864
+	      //
+	      // We check if this process is running inside React Native by using navigator.product:
+	      //
+	      // https://github.com/facebook/react-native/commit/3c65e62183ce05893be0822da217cb803b121c61
+
+	      var base64SetByWsClient = typeof data === 'string' && ws.protocol === 'base64';
+
+	      var base64SetByUser = tcpPolyfillOptions.wsProtocols && tcpPolyfillOptions.wsProtocols.constructor === Array && tcpPolyfillOptions.wsProtocols.indexOf('base64') >= 0;
+
+	      var isRN = typeof navigator !== 'undefined' && navigator.product === 'ReactNative';
+
+	      var base64Workaround = isRN && base64SetByUser && !ws.protocol;
+
+	      var handleBase64 = base64SetByWsClient || base64Workaround;
+
+	      if (typeof Blob !== 'undefined' && data instanceof Blob) {
+	        (0, _blobToBuffer2['default'])(data, function (err, buffer) {
+	          if (err) {
+	            throw err;
+	          }
+	          emitter.emit('data', buffer);
+	        });
+	      } else if (handleBase64) {
 	        emitter.emit('data', new Buffer(data, 'base64'));
 	      } else {
 	        emitter.emit('data', data);
