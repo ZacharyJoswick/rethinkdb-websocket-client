@@ -6,17 +6,14 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/mikemintz/rethinkdb-websocket-client.git"
+		"url": "https://github.com/raiscui/rethinkdb-websocket-client.git"
 	},
 	"scripts": {
 		"test": "eslint test && mocha --compilers js:babel/register",
 		"prepublish": "webpack --config webpack/browser.config.js && webpack --config webpack/node.config.js"
 	},
 	"main": "dist/index.js",
-	"files": [
-		"dist",
-		"webpack"
-	],
+	"files": [ "dist", "webpack" ],
 	"dependencies": {
 		"blob-to-buffer": "^1.2.3",
 		"bluebird": "^2.9.27",
